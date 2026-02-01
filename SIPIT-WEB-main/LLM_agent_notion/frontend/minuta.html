@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Task Management</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/alphardex/aqua.css/dist/aqua.min.css'>
+  <link rel="stylesheet" href="/static/style3.css">
+  <script src="/static/incompletos.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.3/popup.min.js"></script>
+ 
+  
+</head>
+<body>
+
+
+
+<!-- partial:index.partial.html -->
+<main class="dashboard">
+    <article class="projects">
+    <button class="back-button" onclick="window.location.href='/'">
+        <span>⬅</span> Regresar
+      </button>
+    </article>
+    <article class="project-detail">
+        <h1>Comando incompleto</h1>
+        <div class="carousel">
+        <form action="/acompletar{{tipo}}/" method="POST" class="task-card">
+
+            {% for key, value in combined.items() %}
+            {%if key == "id"%}
+                <input type="hidden" name="{{ key }}" value="{{ value }}" class="task-input" required>
+            {%else%}
+                <label>
+                    {{ key }}
+                    <input type="text" name="{{ key }}" value="{{ value }}" class="task-input" required>
+                </label><br>
+            {%endif%}
+            {% endfor %}
+            <input type="submit" value="Aceptar" class="accept-button">
+        </form>
+        </div>
+    
+    </article>
+    
+    
+</main>
+<!-- partial -->
+  
+</body>
+
+<script>
+
+</script>
+
+</html>
